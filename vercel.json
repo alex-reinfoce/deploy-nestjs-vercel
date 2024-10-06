@@ -1,0 +1,17 @@
+{
+  "framework": null,
+  "outputDirectory": ".",
+  "buildCommand": "npm run build",
+  "functions": {
+    "api/*.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api(.*)",
+      "destination": "/api/restful"
+    }
+  ]
+}
