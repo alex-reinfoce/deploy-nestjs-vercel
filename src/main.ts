@@ -20,7 +20,14 @@ async function bootstrap() {
 
   const options = new DocumentBuilder().setTitle(title).setDescription(description).build();
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup(apidoc, app, document);
+  SwaggerModule.setup(apidoc, app, document, {
+    customSiteTitle: title,
+    customJs: [
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.js',
+    ],
+    customCssUrl: ['https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css'],
+  });
 
   await app.listen(port, () => {
     Logger.log(`The api docs is running http://127.0.0.1:${port}/api-docs`);
