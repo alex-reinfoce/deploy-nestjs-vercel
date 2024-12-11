@@ -10,6 +10,14 @@
   },
   "rewrites": [
     {
+      "source": "/api-docs",
+      "destination": "/api/restful"
+    },
+    {
+      "source": "/api-docs/(.*)",
+      "destination": "/api/restful"
+    },
+    {
       "source": "/api(.*)",
       "destination": "/api/restful"
     }
